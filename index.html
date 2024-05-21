@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小张的个人网页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s ease;
+        }
+        header {
+            background-color: #ff7f50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ffa07a;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #ff4500;
+            transform: scale(1.1);
+        }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        h1, h2 {
+            color: #ff6347;
+        }
+        .skill-list, .project-list {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-list li, .project-list li {
+            background-color: #f0e68c;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .skill-list li:hover, .project-list li:hover {
+            transform: translateX(10px);
+        }
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #ff7f50;
+        }
+        .contact-form button {
+            background-color: #ff7f50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .contact-form button:hover {
+            background-color: #ff4500;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>欢迎来到小张的个人网页</h1>
+    </header>
+    <nav>
+        <a href="#about">关于我</a>
+        <a href="#skills">技能</a>
+        <a href="#projects">项目</a>
+        <a href="#blog">博客</a>
+        <a href="#gallery">照片画廊</a>
+        <a href="#contact">联系我</a>
+    </nav>
+    <section id="about">
+        <h2>关于我</h2>
+        <p>大家好，我是小张，一名自由职业者。我拥有大专学历，在自由职业领域有着丰富的经验。</p>
+        <h3>教育背景</h3>
+        <p>大专学历</p>
+        <h3>自由职业介绍</h3>
+        <p>作为一名自由职业者，我参与了各种项目，包括网页设计、写作、市场营销和项目管理等。</p>
+    </section>
+    <section id="skills">
+        <h2>技能</h2>
+        <ul class="skill-list">
+            <li>网页设计与开发</li>
+            <li>内容写作与编辑</li>
+            <li>数字营销与社交媒体管理</li>
+            <li>项目管理与协调</li>
+        </ul>
+    </section>
+    <section id="projects">
+        <h2>项目</h2>
+        <ul class="project-list">
+            <li>项目1：网页设计项目，为某客户设计并开发了一个响应式网站。</li>
+            <li>项目2：内容写作项目，为某杂志撰写了一系列文章。</li>
+            <li>项目3：社交媒体营销项目，帮助某企业提升了其在社交媒体平台上的影响力。</li>
+        </ul>
+    </section>
+    <section id="blog">
+        <h2>博客</h2>
+        <p>敬请期待最新的博客文章！</p>
+    </section>
+    <section id="gallery">
+        <h2>照片画廊</h2>
+        <p>这里将展示一些我的个人照片和工作相关的照片。</p>
+    </section>
+    <section id="contact">
+        <h2>联系我</h2>
+        <form class="contact-form">
+            <label for="name">姓名:</label>
+            <input type="text" id="name" name="name">
+            <label for="email">电子邮件:</label>
+            <input type="email" id="email" name="email">
+            <label for="message">留言:</label>
+            <textarea id="message" name="message"></textarea>
+            <button type="submit">发送</button>
+        </form>
+        <h3>社交媒体</h3>
+        <p>关注我的社交媒体：</p>
+        <ul>
+            <li><a href="#">微博</a></li>
+            <li><a href="#">微信</a></li>
+            <li><a href="#">LinkedIn</a></li>
+        </ul>
+    </section>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Reveal sections on scroll
+        const sections = document.querySelectorAll('section');
+        const revealSection = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+        const sectionObserver = new IntersectionObserver(revealSection, {
+            root: null,
+            threshold: 0.15
+        });
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Change background color on button hover
+        document.querySelectorAll('.contact-form button').forEach(button => {
+            button.addEventListener('mouseover', () => {
+                document.body.style.backgroundColor = '#ffefd5';
+            });
+            button.addEventListener('mouseout', () => {
+                document.body.style.backgroundColor = '#f0f8ff';
+            });
+        });
+    </script>
+</body>
+</html>
